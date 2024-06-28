@@ -1,0 +1,11 @@
+# Terraform related files
+.terraform
+*.tfstate.backup
+*.tfstate
+.terraform.lock.hcl
+
+#ignore temp folder
+temp/
+
+
+
