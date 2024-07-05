@@ -10,7 +10,8 @@
    You cannot manually create a default VPC, but you can request AWS support to recreate it.
 
 3. **Can we create a default VPC using Terraform?**  
-   No, you cannot create a "default VPC" using Terraform, because Terraform does not have built-in support for creating default VPCs. However, you can create a VPC that mimics the default VPC's configuration using Terraform.
+   No, you cannot create a "default VPC" using Terraform, because Terraform does not have built-in support for creating default VPCs.
+   However, you can create a VPC that mimics the default VPC's configuration using Terraform.
 
 4. **What is the difference between `aws_default_vpc` and `aws_vpc` resources?**  
 
@@ -25,11 +26,15 @@
      - **Creation**: You can create as many VPCs as you need using this resource.
 
 5. **What is the use of `mumbai-default.tf` file?**  
-   This Terraform configuration is used to manage and tag the default VPC and its associated resources in the Mumbai region, ensuring they are properly tagged and configured according to your organization's standards. This code adds the tag and removes internet-gateway routes from the default route-table for the default VPC. In summary, removing this route would cause all traffic from your VPC to the internet and from the internet to your VPC to fail, unless there’s another route that enables internet access.
+   This Terraform configuration is used to manage and tag the default VPC and its associated resources in the Mumbai region, ensuring they
+   are properly tagged and configured according to your organization's standards. This code adds the tag and removes internet-gateway routes
+   from the default route-table for the default VPC. In summary, removing this route would cause all traffic from your VPC to the internet
+   and from the internet to your VPC to fail, unless there’s another route that enables internet access.
 
 6. **Are the CIDR of the default VPC and the default subnet for every user the same?**  
    Yes, I have cross-checked with my personal account and my project account.
 
 7. **Error: Variables not allowed**  
-   This error occurs when you try to use a variable in a place where it is not allowed. In this case, the error is on `backend.tf` line 21, in the `terraform` block: `region = var.region`. Variables may not be used here.
+   This error occurs when you try to use a variable in a place where it is not allowed. In this case, the error is on `backend.tf` line 21,
+   in the `terraform` block: `region = var.region`. Variables may not be used here.
 ```
